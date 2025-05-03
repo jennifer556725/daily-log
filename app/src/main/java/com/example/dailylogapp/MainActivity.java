@@ -6,6 +6,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
+import android.app.TimePickerDialog;
+import java.util.Calendar;
+import java.util.Locale;
+
 
 
 
@@ -40,11 +44,68 @@ public class MainActivity extends AppCompatActivity {
         notesEditText = findViewById(R.id.notesEditText);
         submitButton = findViewById(R.id.submitButton);
 
+        //Sets a listener for when the Start Time field in clicked on
+        startTimeEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        //This sets a listener for when the submit button is clicked
+                //Get the current time
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR_OF_DAY);
+                int minute = cal.get(Calendar.MINUTE);
+
+                //creates the time picker dialog
+                TimePickerDialog timePicker = new TimePickerDialog(MainActivity.this, (view, hourOfDay, minute1) -> {
+                    //Format time and set to the "Start Time" field
+                    String time = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute1);
+                    startTimeEditText.setText(time);
+                }, hour, minute, false);
+
+                timePicker.show();
+            }
+
+        });
+
+        arrivalTimeEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR_OF_DAY);
+                int minute = cal.get(Calendar.MINUTE);
+
+                TimePickerDialog timePicker = new TimePickerDialog(MainActivity.this, (view, hourOfDay, minute1) -> {
+                    String time = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute1);
+                    arrivalTimeEditText.setText(time);
+                }, hour, minute, false);
+
+                timePicker.show();
+            }
+        });
+
+
+        endTimeEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR_OF_DAY);
+                int minute = cal.get(Calendar.MINUTE);
+
+                TimePickerDialog timePicker = new TimePickerDialog(MainActivity.this, (view, hourOfDay, minute1) -> {
+                    String time = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute1);
+                    endTimeEditText.setText(time);
+                }, hour, minute, false);
+
+                timePicker.show();
+
+            }
+        });
+
+
+                //This sets a listener for when the submit button is clicked
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 //Gets the text entered ny the user from each input field
                 String fuel = fuelCostEditText.getText().toString();
@@ -61,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
                         "Daily Log Submitted!\nFuel: $" + fuel + "\nCulls: " + culls, Toast.LENGTH_LONG).show();
             }
         });
+
 
     }
 }
