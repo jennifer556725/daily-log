@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/fuelCostEditText"
+            android:hint="@string/fuel_cost_hint"
+            android:inputType="numberDecimal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/startTimeEditText"
+            android:hint="@string/start_time_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
+        <EditText
+            android:id="@+id/arrivalTimeEditText"
+            android:hint="@string/arrival_time_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
+        <EditText
+            android:id="@+id/endTimeEditText"
+            android:hint="@string/end_time_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
+        <EditText
+            android:id="@+id/cullsEditText"
+            android:hint="@string/number_of_culls_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/vaccinatedEditText"
+            android:hint="@string/birds_vaccinated_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/movedEditText"
+            android:hint="@string/birds_moved_hint"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/notesEditText"
+            android:hint="@string/notes_hint"
+            android:minLines="10"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:text="@string/submit_button_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+</ScrollView>
